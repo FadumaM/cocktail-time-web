@@ -1,5 +1,10 @@
 import React from "react";
+import Nav from "../../components/Nav";
 
-const Search = () => <h1>Search</h1>;
+const Search = () => (
+  <div>
+    <Nav />
+  </div>
+);
 
 export default Search;

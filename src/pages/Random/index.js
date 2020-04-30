@@ -1,5 +1,10 @@
 import React from "react";
+import Nav from "../../components/Nav";
 
-const Random = () => <h1>Random</h1>;
+const Random = () => (
+  <div>
+    <Nav />
+  </div>
+);
 
 export default Random;
