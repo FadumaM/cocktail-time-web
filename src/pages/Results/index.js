@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { useQueryParams, GET_COCKTAIL, getMoreCocktails } from "./utils";
+
 import "./index.css";
 
 const Results = () => {
@@ -9,8 +10,9 @@ const Results = () => {
 
   const { data, loading, fetchMore } = useQuery(GET_COCKTAIL, {
     variables: { searchTerm, limit: 12, page: 1 },
-    fetchPolicy: "cache-and-network",
+    notifyOnNetworkStatusChange: true,
   });
+
   if (loading) {
     return null;
   }
