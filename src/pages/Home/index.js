@@ -1,15 +1,19 @@
 import React from "react";
 import SearchBar from "../../components/SearchBar";
-import Nav from "../../components/Nav";
+
 import "./styles.css";
 
-const Home = () => (
-  <div className="home">
-    <Nav />
-    <div className="search-container">
-      <SearchBar />
+const Home = () => {
+  return (
+    <div className="home">
+      <div className="search-container">
+        <SearchBar />
+        <form className="random-search">
+          <button>I'm Feeling Lucky</button>
+        </form>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Home;
