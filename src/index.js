@@ -6,7 +6,7 @@ import App from "./App";
 import "./index.css";
 
 const client = new ApolloClient({
-  uri: "http://localhost:4000",
+  uri: process.env.REACT_APP_API_URL,
 });
 ReactDOM.render(
   <React.StrictMode>
