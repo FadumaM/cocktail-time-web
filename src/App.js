@@ -4,7 +4,6 @@ import Home from "./pages/Home";
 import Results from "./pages/Results";
 import Cocktail from "./pages/Cocktail";
 import Nav from "./components/Nav/";
-// import { CocktailsStateProvider } from "./CocktailProvider";
 import "./App.css";
 
 const App = () => {
