@@ -1,5 +1,5 @@
 nav {
-  background-color: #e8d227;
+  background-color: #4927e8;
   height: 10vh;
   min-height: 80px;
 }
@@ -25,10 +25,11 @@ nav li {
   min-width: 60px;
   font-weight: bold;
   text-transform: capitalize;
+  text-align: center;
 }
 .list-item-logo a {
   text-decoration: none;
-  color: white;
+  color: #fff;
 }
 
 .list-item-search {
@@ -38,7 +39,8 @@ nav li {
 }
 
 @media only screen and (max-width: 500px) {
-  .list-item-logo {
+  .list-item-logo,
+  .list-item-search {
     margin-right: 1em;
   }
   .list-item-search {

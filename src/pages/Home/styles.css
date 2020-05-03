@@ -18,10 +18,8 @@
 
 .random-search {
   margin-top: 1em;
-}
-.random-search button {
-  background-color: transparent;
-  border: none;
+  text-decoration: none;
+  color: inherit;
   cursor: pointer;
 }
 

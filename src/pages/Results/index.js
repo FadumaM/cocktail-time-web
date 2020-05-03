@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { useQueryParams, GET_COCKTAIL, getMoreCocktails } from "./utils";
+import { useQueryParams, GET_COCKTAILS, getMoreCocktails } from "./utils";
 
 import "./index.css";
 
@@ -8,7 +8,7 @@ const Results = () => {
   const query = useQueryParams();
   const searchTerm = query.get("term");
 
-  const { data, loading, fetchMore } = useQuery(GET_COCKTAIL, {
+  const { data, loading, fetchMore } = useQuery(GET_COCKTAILS, {
     variables: { searchTerm, limit: 12, page: 1 },
     notifyOnNetworkStatusChange: true,
   });

@@ -11,6 +11,7 @@ const SearchBar = ({ disable }) => {
     event.preventDefault();
     history.push(`/search?term=${searchTerm}`);
   };
+  const onChange = (event) => setSearchTerm(event.target.value);
 
   return (
     !disable && (
@@ -19,8 +20,8 @@ const SearchBar = ({ disable }) => {
           <input
             type="text"
             className="searchTerm"
-            placeholder="What are you looking for?"
-            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="What are you drinking ?"
+            onChange={onChange}
           />
           <button type="submit" className="searchButton">
             <SearchIcon />

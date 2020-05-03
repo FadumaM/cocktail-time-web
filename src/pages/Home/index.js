@@ -8,9 +8,9 @@ const Home = () => {
     <div className="home">
       <div className="search-container">
         <SearchBar />
-        <form className="random-search">
-          <button>I'm Feeling Lucky</button>
-        </form>
+        <a class="random-search" href="/random">
+          I'm Feeling Lucky
+        </a>
       </div>
     </div>
   );

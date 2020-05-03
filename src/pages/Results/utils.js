@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { gql } from "apollo-boost";
 
-export const GET_COCKTAIL = gql`
+export const GET_COCKTAILS = gql`
   query GetCocktails($searchTerm: String!, $limit: Int!, $page: Int!) {
     getCocktails(searchTerm: $searchTerm, limit: $limit, page: $page) {
       results {
