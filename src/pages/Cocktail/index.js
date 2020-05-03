@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { useParams, useLocation } from "react-router-dom";
 import { GET_COCKTAIL, GET_RANDOM_COCKTAIL } from "./utils";
-import Cocktail from "./Cocktail";
+import Cocktail from "../../components/Cocktail";
 
 const WithCocktailId = (Component) => {
   const { id } = useParams();
@@ -13,7 +13,11 @@ const WithCocktailId = (Component) => {
   if (loading) {
     return null;
   }
-  return <Component cocktail={data.getCocktailById} />;
+  return (
+    <div className="cocktail">
+      <Component cocktail={data.getCocktailById} />
+    </div>
+  );
 };
 const WithRandomCocktail = (Component) => {
   const { data, loading } = useQuery(GET_RANDOM_COCKTAIL);
@@ -21,7 +25,11 @@ const WithRandomCocktail = (Component) => {
   if (loading) {
     return null;
   }
-  return <Component cocktail={data.getRandomCocktail} />;
+  return (
+    <div className="random">
+      <Component cocktail={data.getRandomCocktail} />
+    </div>
+  );
 };
 
 export default () => {
