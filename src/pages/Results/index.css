@@ -20,7 +20,7 @@
   text-align: center;
 }
 .cocktail-result:hover {
-  background-color: #4927e8;
+  background-color: #e74da4;
 }
 .cocktail-result:hover p {
   color: #fff;
@@ -52,8 +52,8 @@
 .more-results-container button {
   width: 200px;
   height: 56px;
-  border: 1px solid #1b009c;
-  background: #1b009c;
+  border: 1px solid #e74da4;
+  background: #e74da4;
   color: #fff;
   border-radius: 5px;
   cursor: pointer;

@@ -10,7 +10,7 @@
 
 .searchTerm {
   width: 100%;
-  border: 5px solid #1b009c;
+  border: 5px solid #e74da4;
   border-right: none;
   padding: 5px;
   height: 40px;
@@ -24,8 +24,8 @@
 .searchButton {
   width: 40px;
   height: 60px;
-  border: 1px solid #1b009c;
-  background: #1b009c;
+  border: 1px solid #e74da4;
+  background: #e74da4;
   color: #fff;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
