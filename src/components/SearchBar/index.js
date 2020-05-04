@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { ReactComponent as SearchIcon } from "./search.svg";
+import "./styles.css";
 
-import "./index.css";
-
-const SearchBar = ({ disable }) => {
-  const [searchTerm, setSearchTerm] = useState(false);
+const SearchBar = ({ disabled }) => {
+  const [searchTerm, setSearchTerm] = useState("");
   const history = useHistory();
+
   const onSubmit = (event) => {
     event.preventDefault();
     history.push(`/search?term=${searchTerm}`);
@@ -14,11 +14,11 @@ const SearchBar = ({ disable }) => {
   const onChange = (event) => setSearchTerm(event.target.value);
 
   return (
-    !disable && (
+    !disabled && (
       <div className="search-bar">
         <form onSubmit={onSubmit} className="search">
           <input
-            type="text"
+            type="search"
             className="searchTerm"
             placeholder="What are you drinking ?"
             onChange={onChange}

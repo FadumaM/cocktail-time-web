@@ -7,7 +7,7 @@ import App from "./App";
 import "./index.css";
 
 const client = new ApolloClient({
-  uri: process.env.REACT_APP_API_URL || "https://cocktail-time-api.now.sh",
+  uri: "https://cocktail-time-api.now.sh",
 });
 ReactDOM.render(
   <React.StrictMode>

@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cocktail should render correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="cocktail-container"
+    >
+      <div
+        class="cocktail-image"
+      >
+        <img
+          alt="Cocktail name"
+        />
+      </div>
+      <div
+        class="cocktail-details"
+      >
+        <h1>
+          Cocktail name
+        </h1>
+        <div
+          class="cocktail-instruction"
+        >
+          <h3>
+            Instruction
+          </h3>
+          <p>
+            Cocktail instruction
+          </p>
+        </div>
+        <div
+          class="cocktail-ingredients"
+        >
+          <h3>
+            Ingredients
+          </h3>
+          <ol
+            class="ingredient"
+          >
+            <li>
+              <span>
+                1 oz
+                 
+                rum
+              </span>
+            </li>
+            <li>
+              <span>
+                1
+                 
+                lime
+              </span>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

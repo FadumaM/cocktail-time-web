@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { useQueryParams, GET_COCKTAILS, getMoreCocktails } from "./utils";
 
-import "./index.css";
+import "./styles.css";
 
 const Results = () => {
   const query = useQueryParams();
@@ -16,19 +16,24 @@ const Results = () => {
   if (loading) {
     return null;
   }
-  const { getCocktails: cocktails } = data;
+
+  const onClick = () =>
+    getMoreCocktails({
+      page: data.getCocktails.pagination.page,
+      fetchMore,
+    });
 
   return (
     <div data-testid="results-page" className="results">
-      {cocktails && cocktails.results.length > 0 ? (
+      {data && data.getCocktails.results.length > 0 ? (
         <>
           <div className="total-results">
             <p>
-              A total of <span>{cocktails.totalResults}</span> results
+              A total of <span>{data.getCocktails.totalResults}</span> results
             </p>
           </div>
           <div className="cocktails-results">
-            {cocktails.results.map((cocktail) => {
+            {data.getCocktails.results.map((cocktail) => {
               return (
                 <div key={cocktail.id} className="cocktail-result">
                   <a href={`/cocktails/${cocktail.id}`}>
@@ -39,18 +44,10 @@ const Results = () => {
               );
             })}
           </div>
-          {cocktails.totalResults > cocktails.results.length && (
+          {data.getCocktails.totalResults !==
+            data.getCocktails.results.length && (
             <div className="more-results-container">
-              <button
-                onClick={() =>
-                  getMoreCocktails({
-                    page: cocktails.pagination.page,
-                    fetchMore,
-                  })
-                }
-              >
-                Show more
-              </button>
+              <button onClick={onClick}>Show more</button>
             </div>
           )}
         </>

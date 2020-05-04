@@ -1,12 +1,15 @@
 import React from "react";
 import { Router } from "react-router-dom";
+import { useQuery } from "@apollo/react-hooks";
 import { createMemoryHistory } from "history";
 import { render } from "@testing-library/react";
 
 import App from "./App";
 
 jest.mock("@apollo/react-hooks", () => ({
-  useQuery: jest.fn().mockImplementation(() => ({ data: {}, loading: false })),
+  useQuery: jest
+    .fn()
+    .mockImplementation(() => ({ data: null, loading: false })),
 }));
 
 describe("App.js", () => {
@@ -43,9 +46,21 @@ describe("App.js", () => {
     const { getByTestId } = renderWithRouter(<App />, { route });
     expect(getByTestId("results-page")).toBeInTheDocument();
   });
+
   it("should render Cocktail component when route /cocktails/:id", () => {
+    useQuery.mockImplementationOnce(() => ({
+      data: { getCocktailById: null },
+    }));
     const route = "/cocktails/1";
     const { getByTestId } = renderWithRouter(<App />, { route });
     expect(getByTestId("cocktail-page")).toBeInTheDocument();
+  });
+  it("should render Cocktail component when route /random", () => {
+    useQuery.mockImplementationOnce(() => ({
+      data: { getRandomCocktail: null },
+    }));
+    const route = "/random";
+    const { getByTestId } = renderWithRouter(<App />, { route });
+    expect(getByTestId("random-cocktail-page")).toBeInTheDocument();
   });
 });

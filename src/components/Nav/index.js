@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import Search from "../SearchBar";
-import "./index.css";
+import "./styles.css";
 
 const Nav = () => {
   const { pathname } = useLocation();
@@ -12,7 +12,7 @@ const Nav = () => {
           <a href="/">Cocktail time</a>
         </li>
         <li className="list-item-search">
-          <Search disable={pathname === "/"} />
+          <Search disabled={pathname === "/"} />
         </li>
       </ul>
     </nav>
