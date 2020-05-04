@@ -39,16 +39,25 @@ nav li {
   align-self: center;
 }
 
+/* small-medium screens */
 @media only screen and (max-width: 500px) {
+  nav {
+    height: 20vh;
+  }
+
+  .list-container {
+    flex-direction: column;
+    justify-content: center;
+  }
+
   .list-item-logo,
   .list-item-search {
-    margin-right: 1em;
-  }
-  .list-item-search {
-    width: 100%;
+    margin-top: 0.8em;
+    width: 90%;
+    justify-content: center;
   }
 }
-
+/* medium-large screens */
 @media only screen and (min-width: 500px) {
   .list-item-search {
     margin-right: 1em;
