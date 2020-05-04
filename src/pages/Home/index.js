@@ -5,10 +5,10 @@ import "./styles.css";
 
 const Home = () => {
   return (
-    <div className="home">
+    <div data-testid="home-page" className="home">
       <div className="search-container">
         <SearchBar />
-        <a class="random-search" href="/random">
+        <a className="random-search" href="/random">
           I'm Feeling Lucky
         </a>
       </div>

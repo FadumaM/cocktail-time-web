@@ -19,35 +19,42 @@ const Results = () => {
   const { getCocktails: cocktails } = data;
 
   return (
-    <div className="results">
-      <div className="total-results">
-        <p>
-          A total of <span>{cocktails.totalResults}</span> results
-        </p>
-      </div>
-      <div className="cocktails-results">
-        {cocktails.results.map((cocktail) => {
-          return (
-            <div key={cocktail.id} className="cocktail-result">
-              <a href={`/cocktails/${cocktail.id}`}>
-                <img alt={cocktail.name} src={cocktail.image} />
-                <p>{cocktail.name}</p>
-              </a>
+    <div data-testid="results-page" className="results">
+      {cocktails && cocktails.results.length > 0 ? (
+        <>
+          <div className="total-results">
+            <p>
+              A total of <span>{cocktails.totalResults}</span> results
+            </p>
+          </div>
+          <div className="cocktails-results">
+            {cocktails.results.map((cocktail) => {
+              return (
+                <div key={cocktail.id} className="cocktail-result">
+                  <a href={`/cocktails/${cocktail.id}`}>
+                    <img alt={cocktail.name} src={cocktail.image} />
+                    <p>{cocktail.name}</p>
+                  </a>
+                </div>
+              );
+            })}
+          </div>
+          {cocktails.totalResults > cocktails.results.length && (
+            <div className="more-results-container">
+              <button
+                onClick={() =>
+                  getMoreCocktails({
+                    page: cocktails.pagination.page,
+                    fetchMore,
+                  })
+                }
+              >
+                Show more
+              </button>
             </div>
-          );
-        })}
-      </div>
-      {cocktails.totalResults > cocktails.results.length && (
-        <div className="more-results-container">
-          <button
-            onClick={() =>
-              getMoreCocktails({ page: cocktails.pagination.page, fetchMore })
-            }
-          >
-            Show more
-          </button>
-        </div>
-      )}
+          )}
+        </>
+      ) : null}
     </div>
   );
 };

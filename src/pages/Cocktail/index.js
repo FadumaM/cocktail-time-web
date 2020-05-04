@@ -14,7 +14,7 @@ const WithCocktailId = (Component) => {
     return null;
   }
   return (
-    <div className="cocktail">
+    <div data-testid="cocktail-page" className="cocktail">
       <Component cocktail={data.getCocktailById} />
     </div>
   );
@@ -26,7 +26,7 @@ const WithRandomCocktail = (Component) => {
     return null;
   }
   return (
-    <div className="random">
+    <div data-testid="random-cocktail-page" className="random">
       <Component cocktail={data.getRandomCocktail} />
     </div>
   );
