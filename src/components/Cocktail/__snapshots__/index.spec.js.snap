@@ -22,9 +22,9 @@ exports[`Cocktail should render correctly 1`] = `
         <div
           class="cocktail-instruction"
         >
-          <h3>
+          <h2>
             Instruction
-          </h3>
+          </h2>
           <p>
             Cocktail instruction
           </p>

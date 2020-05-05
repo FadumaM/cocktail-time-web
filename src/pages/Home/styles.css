@@ -16,6 +16,10 @@
   margin: 0 auto;
 }
 
+.search-container h1 {
+  text-align: center;
+}
+
 .random-search {
   margin-top: 1em;
   text-decoration: none;

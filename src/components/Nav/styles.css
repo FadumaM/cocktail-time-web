@@ -1,7 +1,5 @@
 nav {
   background-color: #ffdb00;
-  height: 10vh;
-  min-height: 80px;
 }
 
 nav li {
@@ -41,10 +39,6 @@ nav li {
 
 /* small-medium screens */
 @media only screen and (max-width: 500px) {
-  nav {
-    height: 20vh;
-  }
-
   .list-container {
     flex-direction: column;
     justify-content: center;
@@ -52,14 +46,25 @@ nav li {
 
   .list-item-logo,
   .list-item-search {
-    margin-top: 0.8em;
     width: 90%;
     justify-content: center;
+  }
+  .list-item-logo {
+    margin: 1em 0;
+  }
+  .list-item-search .search-bar {
+    margin: 0.8em 0;
   }
 }
 /* medium-large screens */
 @media only screen and (min-width: 500px) {
   .list-item-search {
     margin-right: 1em;
+  }
+}
+@media only screen and (min-width: 500px) {
+  .list-item-search,
+  .list-item-logo {
+    margin: 1em 1em;
   }
 }

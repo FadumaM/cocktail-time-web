@@ -1,3 +1,7 @@
+main {
+  margin: 2em auto;
+  width: 90%;
+}
 .cocktail-container {
   height: 80%;
   display: flex;

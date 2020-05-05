@@ -84,7 +84,7 @@ describe("Result page", () => {
     }));
     const { container } = render(<Results />);
     const button = container.querySelector("button");
-    expect(button).not.toBeInTheDocument();
+    expect(button).toBeInTheDocument();
   });
   it("should not render button when cocktail length is equal totalResults", () => {
     useQuery.mockImplementationOnce(() => ({
@@ -109,7 +109,7 @@ describe("Result page", () => {
     }));
     const { container } = render(<Results />);
     const button = container.querySelector("button");
-    expect(button).toBeInTheDocument();
+    expect(button).not.toBeInTheDocument();
   });
   it("should call fetchMore function when button is clicked", () => {
     const mockFetchMore = jest.fn();
@@ -117,7 +117,7 @@ describe("Result page", () => {
       loading: false,
       data: {
         getCocktails: {
-          totalResults: 1,
+          totalResults: 2,
           results: [
             {
               id: "1",

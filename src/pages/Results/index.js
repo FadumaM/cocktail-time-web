@@ -29,7 +29,6 @@ const Results = () => {
     });
 
   const { getCocktails } = data;
-  console.log(getCocktails);
 
   return (
     <main data-testid="results-page" className="results">
