@@ -1,0 +1,18 @@
+.error-page {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.error-page h1 {
+  text-align: center;
+}
+.error-page a {
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+.error-page a:hover {
+  color: #e74da4;
+}

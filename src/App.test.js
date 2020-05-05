@@ -7,9 +7,7 @@ import { render } from "@testing-library/react";
 import App from "./App";
 
 jest.mock("@apollo/react-hooks", () => ({
-  useQuery: jest
-    .fn()
-    .mockImplementation(() => ({ data: null, loading: false })),
+  useQuery: jest.fn(),
 }));
 
 describe("App.js", () => {
@@ -42,6 +40,11 @@ describe("App.js", () => {
     expect(getByTestId("home-page")).toBeInTheDocument();
   });
   it("should render Results component when route /search", () => {
+    useQuery.mockImplementation(() => ({
+      loading: false,
+      data: { getCocktails: { results: [], totalResult: 0 } },
+    }));
+
     const route = "/search";
     const { getByTestId } = renderWithRouter(<App />, { route });
     expect(getByTestId("results-page")).toBeInTheDocument();
@@ -49,7 +52,7 @@ describe("App.js", () => {
 
   it("should render Cocktail component when route /cocktails/:id", () => {
     useQuery.mockImplementationOnce(() => ({
-      data: { getCocktailById: null },
+      data: { getCocktailById: { id: 1, ingredients: [] } },
     }));
     const route = "/cocktails/1";
     const { getByTestId } = renderWithRouter(<App />, { route });
@@ -57,7 +60,7 @@ describe("App.js", () => {
   });
   it("should render Cocktail component when route /random", () => {
     useQuery.mockImplementationOnce(() => ({
-      data: { getRandomCocktail: null },
+      data: { getRandomCocktail: { id: 1, ingredients: [] } },
     }));
     const route = "/random";
     const { getByTestId } = renderWithRouter(<App />, { route });

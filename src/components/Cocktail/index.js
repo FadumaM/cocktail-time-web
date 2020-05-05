@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 
 const Cocktail = ({ cocktail }) =>
-  cocktail ? (
+  cocktail && Object.entries(cocktail).length > 0 ? (
     <div className="cocktail-container">
       <div className="cocktail-image">
         <img src={cocktail.image} alt={cocktail.name} />
@@ -10,7 +10,7 @@ const Cocktail = ({ cocktail }) =>
       <div className="cocktail-details">
         <h1>{cocktail.name}</h1>
         <div className="cocktail-instruction">
-          <h3>Instruction</h3>
+          <h2>Instruction</h2>
           <p>{cocktail.instruction}</p>
         </div>
         <div className="cocktail-ingredients">

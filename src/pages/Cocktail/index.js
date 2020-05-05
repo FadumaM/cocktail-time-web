@@ -3,32 +3,41 @@ import { useQuery } from "@apollo/react-hooks";
 import { useParams, useLocation } from "react-router-dom";
 import { GET_COCKTAIL, GET_RANDOM_COCKTAIL } from "./utils";
 import Cocktail from "../../components/Cocktail";
+import Error from "../Error";
 
 const WithCocktailId = (Component) => {
   const { id } = useParams();
-  const { data, loading } = useQuery(GET_COCKTAIL, {
+  const { data, loading, error } = useQuery(GET_COCKTAIL, {
     variables: { id },
   });
 
   if (loading) {
     return null;
   }
+  if (!data || !data.getCocktailById || error) {
+    return <Error />;
+  }
   return (
-    <div data-testid="cocktail-page">
+    <main data-testid="cocktail-page">
       <Component cocktail={data.getCocktailById} />
-    </div>
+    </main>
   );
 };
 const WithRandomCocktail = (Component) => {
-  const { data, loading } = useQuery(GET_RANDOM_COCKTAIL);
+  const { data, loading, error } = useQuery(GET_RANDOM_COCKTAIL);
 
   if (loading) {
     return null;
   }
+
+  if (!data.getRandomCocktail || error) {
+    return <Error />;
+  }
+
   return (
-    <div data-testid="random-cocktail-page">
+    <main data-testid="random-cocktail-page">
       <Component cocktail={data.getRandomCocktail} />
-    </div>
+    </main>
   );
 };
 

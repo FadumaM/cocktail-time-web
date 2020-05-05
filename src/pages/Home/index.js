@@ -4,7 +4,8 @@ import "./styles.css";
 
 const Home = () => (
   <div data-testid="home-page" className="home">
-    <div className="search-container">
+    <div className="search-container" role="main">
+      <h1>What you drinking tonight ?</h1>
       <SearchBar />
       <a className="random-search" href="/random">
         I'm Feeling Lucky

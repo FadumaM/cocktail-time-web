@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Error should render correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="error-page"
+    >
+      <h1>
+        Sorry error has occured
+      </h1>
+      <a
+        href="/"
+      >
+        Go Home 
+      </a>
+    </div>
+  </div>
+</body>
+`;

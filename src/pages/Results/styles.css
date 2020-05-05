@@ -52,9 +52,9 @@
 .more-results-container button {
   width: 200px;
   height: 56px;
-  border: 1px solid #e74da4;
-  background: #e74da4;
-  color: #fff;
+  border: 1px solid #ffdb00;
+  background: #ffdb00;
+  color: #000;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1em;

@@ -2,6 +2,14 @@
   "name": "cocktail-time-web",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "test:cypress": "start-server-and-test start http://localhost:3000 cy:open",
+    "cy:open": "cypress open",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.5",
     "@testing-library/jest-dom": "^4.2.4",
@@ -15,14 +23,20 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "axe-core": "^3.5.3",
+    "cypress": "^4.5.0",
+    "cypress-axe": "^0.8.1",
+    "cypress-wait-until": "^1.6.1",
+    "eslint-plugin-cypress": "^2.10.3",
+    "history": "^4.10.1",
+    "start-server-and-test": "^1.11.0"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "plugin:cypress/recommended"
+    ]
   },
   "browserslist": {
     "production": [
@@ -36,7 +50,10 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "history": "^4.10.1"
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/cypress/"
+    ]
   }
 }

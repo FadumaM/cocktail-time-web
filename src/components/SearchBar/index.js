@@ -20,10 +20,16 @@ const SearchBar = ({ disabled }) => {
           <input
             type="search"
             className="searchTerm"
+            aria-label="Search"
             placeholder="What are you drinking ?"
             onChange={onChange}
           />
-          <button type="submit" className="searchButton">
+          <button
+            aria-label="Submit"
+            name="onSubmit"
+            type="submit"
+            className="searchButton"
+          >
             <SearchIcon />
           </button>
         </form>

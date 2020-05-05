@@ -84,7 +84,7 @@ describe("Result page", () => {
     }));
     const { container } = render(<Results />);
     const button = container.querySelector("button");
-    expect(button).toBeInTheDocument();
+    expect(button).not.toBeInTheDocument();
   });
   it("should not render button when cocktail length is equal totalResults", () => {
     useQuery.mockImplementationOnce(() => ({
@@ -109,7 +109,7 @@ describe("Result page", () => {
     }));
     const { container } = render(<Results />);
     const button = container.querySelector("button");
-    expect(button).toBe(null);
+    expect(button).toBeInTheDocument();
   });
   it("should call fetchMore function when button is clicked", () => {
     const mockFetchMore = jest.fn();
@@ -117,7 +117,7 @@ describe("Result page", () => {
       loading: false,
       data: {
         getCocktails: {
-          totalResults: 2,
+          totalResults: 1,
           results: [
             {
               id: "1",
@@ -136,5 +136,14 @@ describe("Result page", () => {
     const button = container.querySelector("button");
     fireEvent.click(button);
     expect(mockFetchMore).toHaveBeenCalled();
+  });
+
+  it("should return error page if there is an error", () => {
+    useQuery.mockImplementationOnce(() => ({
+      error: { message: "error has occured" },
+    }));
+    const { container } = render(<Results />);
+    const errorComponent = container.querySelector(".error-page");
+    expect(errorComponent).toBeInTheDocument();
   });
 });
